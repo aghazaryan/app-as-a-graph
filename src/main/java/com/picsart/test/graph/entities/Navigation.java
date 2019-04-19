@@ -15,6 +15,16 @@ public class Navigation {
     @JsonIgnore
     private Screen to;
 
+    public Navigation(String id, NavigationType type, Screen source, Screen to) {
+        this.id = id;
+        this.type = type;
+        this.source = source;
+        this.to = to;
+    }
+
+    public Navigation(String id, Screen source, Screen to) {
+        this(id, NavigationType.BUTTON, source, to);
+    }
 
     public String getId() {
         return id;

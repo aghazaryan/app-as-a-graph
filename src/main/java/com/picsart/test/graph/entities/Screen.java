@@ -64,5 +64,14 @@ public class Screen {
         public Screen build() {
             return screen;
         }
+
+        public Screen build(String str) {
+            //id:name:url
+            String[] split = str.split(":");
+            screen.setId(split[0]);
+            screen.setName(split[1]);
+            screen.setImgUrl(split.length == 2 ? "some-url" : split[2]);
+            return screen;
+        }
     }
 }

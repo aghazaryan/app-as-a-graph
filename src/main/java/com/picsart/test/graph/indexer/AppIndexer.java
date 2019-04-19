@@ -1,10 +1,10 @@
 package com.picsart.test.graph.indexer;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.picsart.test.graph.entities.Navigation;
 import com.picsart.test.graph.entities.Screen;
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.Session;
+import org.neo4j.driver.StatementResult;
 
 /**
  * @author ag on 2019-04-16
@@ -17,12 +17,13 @@ public class AppIndexer {
         this.driver = driver;
     }
 
-    private void run(String command) {
+    public StatementResult run(String command) {
         System.out.println(command);
         try (Session session = driver.session()) {
-            session.run(command);
+            return session.run(command);
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
     }
 
@@ -31,13 +32,23 @@ public class AppIndexer {
     }
 
     public void indexNavigation(Navigation navigation) {
-        run(String.format("MATCH (s: screen {id: '%s'}) CREATE (s) -[n: %s %s]- (t: screen %s)",
+
+        if (!run(String.format("MATCH (t: screen {id: '%s'}) return t", navigation.getTo().getId()))
+                .hasNext()) {
+            indexScreen(navigation.getTo());
+        }
+
+        run(String.format("MATCH (s: screen {id: '%s'}), (t: screen {id: '%s'}) CREATE (s) -[n: %s %s]-> (t)",
                 navigation.getSource().getId(),
-                navigation.getType(), navigation,
-                navigation.getTo()));
+                navigation.getTo().getId(),
+                navigation.getType(), navigation));
     }
 
     public void close() {
         driver.close();
+    }
+
+    public void createIndex(String labelProperty) {
+        run("CREATE INDEX ON :" + labelProperty);
     }
 }
