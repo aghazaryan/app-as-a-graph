@@ -1,0 +1,27 @@
+{"name": "profile",                        "id":"1"}
+{"name": "save button",                        "id":"2"}
+{"name": "three dots",                         "id":"3"}
+{"name": "profile picture",                        "id":"4"}
+{"name": "edit profile",                       "id":"5"}
+{"name": "followers",                      "id":"6"}
+{"name": "followings",                         "id":"7"}
+{"name": "stickers see all",                       "id":"8"}
+{"name": "sticker",                        "id":"9"}
+{"name": "photo",                      "id":"10"}
+{"name": "private stickers",                       "id":"11"}
+{"name": "private photos",                         "id":"12"}
+{"name": "reposts",                        "id":"13"}
+{"name": "public",                         "id":"14"}
+{"name": "add",                        "id":"15"}
+{"name": "discover artist",                        "id":"16"}
+{"name": "upload photo",                       "id":"17"}
+{"name": "settings",                       "id":"18"}
+{"name": "logout",                         "id":"19"}
+{"name": "invite friends",                         "id":"20"}
+{"name": "user",                       "id":"21"}
+{"name": "find people to follow",                      "id":"22"}
+{"name": "sticker tag",                        "id":"23"}
+{"name": "apply",                      "id":"24"}
+{"name": "photo tag",                      "id":"25"}
+{"name": "saved stickers",                         "id":"26"}
+{"name": "collections",                        "id":"27"}

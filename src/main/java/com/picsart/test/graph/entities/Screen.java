@@ -1,9 +1,14 @@
 package com.picsart.test.graph.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * @author ag on 2019-04-16
  */
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Screen {
 
     private String id;

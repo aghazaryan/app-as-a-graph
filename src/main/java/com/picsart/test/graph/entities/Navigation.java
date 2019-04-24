@@ -8,22 +8,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Navigation {
     private String id;
-    private NavigationType type;
+    private String name;
 
     @JsonIgnore
     private Screen source;
     @JsonIgnore
     private Screen to;
 
-    public Navigation(String id, NavigationType type, Screen source, Screen to) {
+    public Navigation(String id, String name, Screen source, Screen to) {
         this.id = id;
-        this.type = type;
+        this.name = name;
         this.source = source;
         this.to = to;
     }
 
-    public Navigation(String id, Screen source, Screen to) {
-        this(id, NavigationType.BUTTON, source, to);
+    public Navigation(String idName, Screen source, Screen to) {
+        this(idName.split(":")[0], idName.split(":")[1], source, to);
     }
 
     public String getId() {
@@ -34,12 +34,12 @@ public class Navigation {
         this.id = id;
     }
 
-    public NavigationType getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(NavigationType type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Screen getSource() {
@@ -62,7 +62,7 @@ public class Navigation {
     public String toString() {
         return "{" +
                 "id:'" + id + '\'' +
-                ",type:'" + type +
-                "'}";
+                ", name:'" + name + '\'' +
+                '}';
     }
 }

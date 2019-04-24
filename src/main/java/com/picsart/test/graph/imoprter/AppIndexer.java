@@ -1,4 +1,4 @@
-package com.picsart.test.graph.indexer;
+package com.picsart.test.graph.imoprter;
 
 import com.picsart.test.graph.entities.Navigation;
 import com.picsart.test.graph.entities.Screen;
@@ -38,10 +38,10 @@ public class AppIndexer {
             indexScreen(navigation.getTo());
         }
 
-        run(String.format("MATCH (s: screen {id: '%s'}), (t: screen {id: '%s'}) CREATE (s) -[n: %s %s]-> (t)",
+        run(String.format("MATCH (s: screen {id: '%s'}), (t: screen {id: '%s'}) CREATE UNIQUE (s) -[n: BUTTON %s]-> (t)",
                 navigation.getSource().getId(),
                 navigation.getTo().getId(),
-                navigation.getType(), navigation));
+                navigation));
     }
 
     public void close() {
@@ -50,5 +50,9 @@ public class AppIndexer {
 
     public void createIndex(String labelProperty) {
         run("CREATE INDEX ON :" + labelProperty);
+    }
+
+    public void clear() {
+        run("MATCH (n) DETACH DELETE n");
     }
 }
