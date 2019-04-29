@@ -2,6 +2,8 @@ package com.picsart.test.graph.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.Objects;
+
 /**
  * @author ag on 2019-04-16
  */
@@ -63,6 +65,19 @@ public class Navigation {
         return "{" +
                 "id:'" + id + '\'' +
                 ", name:'" + name + '\'' +
-                '}';
+                ", name_2:'to'} ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Navigation that = (Navigation) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

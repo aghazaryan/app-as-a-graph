@@ -4,6 +4,8 @@ import com.picsart.test.graph.dal.Neo4jDAO;
 import com.picsart.test.graph.entities.Navigation;
 import com.picsart.test.graph.entities.Screen;
 
+import java.util.List;
+
 /**
  * @author ag on 2019-04-16
  */

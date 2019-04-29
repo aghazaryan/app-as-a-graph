@@ -11,6 +11,6 @@ import java.util.stream.Stream;
 public class FileReader {
 
     public static Stream<String> readTextFile(String path) throws FileNotFoundException {
-        return new BufferedReader(new java.io.FileReader(path)).lines();
+        return new BufferedReader(new java.io.FileReader(path)).lines().filter(s -> !s.isEmpty());
     }
 }

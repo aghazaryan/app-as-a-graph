@@ -2,6 +2,8 @@ package com.picsart.test.graph.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Objects;
+
 /**
  * @author ag on 2019-04-16
  */
@@ -44,6 +46,19 @@ public class Screen {
                 ", name:'" + name + '\'' +
                 ", imgUrl:'" + imgUrl + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Screen screen = (Screen) o;
+        return Objects.equals(id, screen.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     public static class Builder {

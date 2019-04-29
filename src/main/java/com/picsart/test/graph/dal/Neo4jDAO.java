@@ -17,7 +17,7 @@ public class Neo4jDAO {
     }
 
     public StatementResult run(String command) {
-//        System.out.println(command);
+        System.out.println(command);
         try (Session session = driver.session()) {
             return session.run(command);
         } catch (Exception e) {
