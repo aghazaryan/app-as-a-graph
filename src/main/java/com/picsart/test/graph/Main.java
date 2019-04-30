@@ -24,7 +24,7 @@ public class Main {
         importData(screens, navigations);
     }
 
-    public static void automaticllyImportData() throws Exception {
+    public static void automaticallyImportData() throws Exception {
         NavigationFileScanner navigationFileScanner = new NavigationFileScanner("./src/main/resources/navigations_appium");
         List<Screen> screens = navigationFileScanner.getScreens();
         List<Navigation> navigations = navigationFileScanner.scanNavigations();
@@ -49,6 +49,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        automaticllyImportData();
+        automaticallyImportData();
     }
 }
